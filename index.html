@@ -1,565 +1,124 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head class="has-navbar-fixed-top">
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>{{ site.name }} - 3D Perception, SLAM, VLMs | PhD Candidate, UIUC</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <title>Prachit Puranik</title>
 
-  <!-- SEO metadata -->
-  <meta name="description" content="Kulbir Singh Ahluwalia - PhD Candidate in Computer Science at UIUC (advised by Prof. Girish Chowdhary & Prof. Julia Hockenmaier). Research: WaypointGen (VLM-grounded navigation for mobile manipulators), efficient on-device AI, physical AI / agricultural robotics (DASLAB/AIFARMS). Current: Product Management Intern, Compute Chipset (Snapdragon X Elite AI-PC), Qualcomm (June-Aug 2026, San Diego). Prior: EarthSense AI Intern (deployed 6 VLMs 3B-72B on Jetson for outdoor robots); ICRA 2025 author; CS498GC co-developer. UMD MEng Robotics.">
-  <meta name="keywords" content="Kulbir Ahluwalia, 3D perception, SLAM, sensor fusion, EKF, semantic octomap, RGB-D, diffusion depth, vision-language models, Grounded SAM2, Qwen, Molmo, mobile manipulator, autonomous robots, UIUC PhD, ICRA 2025">
-  <meta name="author" content="Kulbir Singh Ahluwalia">
-  <link rel="canonical" href="{{ site.url }}/">
+  <!-- SEO: fresh metadata that replaces the previous content -->
+  <meta name="description" content="Prachit Puranik - personal website. Coming soon.">
+  <meta name="author" content="Prachit Puranik">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prachit-puranik.com/">
 
-  <!-- Open Graph (Facebook, LinkedIn, Slack, etc.) -->
-  <meta property="og:type" content="profile">
-  <meta property="og:url" content="{{ site.url }}/">
-  <meta property="og:title" content="{{ site.name }} - {{ site.position }}">
-  <meta property="og:description" content="EDIT ME: one-sentence professional summary for link previews.">
-  <meta property="og:image" content="{{ site.url }}/images/YOUR-PHOTO.jpg">
+  <!-- Open Graph / link previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prachit Puranik">
+  <meta property="og:description" content="Personal website - coming soon.">
+  <meta property="og:url" content="https://prachit-puranik.com/">
 
   <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="{{ site.url }}/">
-  <meta name="twitter:title" content="{{ site.name }} - {{ site.position }}">
-  <meta name="twitter:description" content="EDIT ME: one-sentence professional summary for link previews.">
-  <meta name="twitter:image" content="{{ site.url }}/images/YOUR-PHOTO.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Prachit Puranik">
+  <meta name="twitter:description" content="Personal website - coming soon.">
 
-  <!-- JSON-LD Person schema for richer Google results -->
+  <!-- Person schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "{{ site.name }}",
-    "url": "{{ site.url }}/",
-    "image": "{{ site.url }}/images/YOUR-PHOTO.jpg",
-    "jobTitle": "PhD Candidate in Computer Science",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "University of Illinois Urbana-Champaign"
-    },
-    "alumniOf": [
-      {"@type": "Organization", "name": "University of Maryland, College Park"},
-      {"@type": "Organization", "name": "Punjab Engineering College"}
-    ],
-    "sameAs": [
-      "https://github.com/kulbir-ahluwalia",
-      "https://www.linkedin.com/in/kulbir-ahluwalia/",
-      "https://scholar.google.com/citations?user=rXq-2HYAAAAJ",
-      "https://orcid.org/0009-0009-6793-8566",
-      "https://x.com/Kulbir_Singh_"
-    ],
-    "knowsAbout": [
-      "3D Perception",
-      "SLAM",
-      "Sensor Fusion",
-      "Vision-Language Models",
-      "Semantic Mapping",
-      "Autonomous Robots",
-      "Mobile Manipulation",
-      "Deep Learning"
-    ]
+    "name": "Prachit Puranik",
+    "url": "https://prachit-puranik.com/"
   }
   </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!--script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #6ea8fe;
+      --border: #2a2f3a;
     }
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
-  </script-->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@700&family=Noto+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="{{ '/js/index.js' | relative_url }}"></script>
-  <link href="{{ '/css/bulma.min.css' | relative_url }}" rel="stylesheet">
-  <link href="{{ '/css/index.css' | relative_url }}" rel="stylesheet">
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #1b2130 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.6;
+    }
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    p.tagline {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+    p.note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
 </head>
-
 <body>
-
-  <!--somehow bulma navbar doesn't take space on page, so I insert a div element-->
-  <div style="height: 3.25rem;"></div>
-
-  <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-end">
-        {% for item in site.data.navigation %}
-        <a class="navbar-item" style="text-align:right" href='{{site.baseurl}}{{item.link}}{{item.anchor}}'>
-          {{ item.name }}
-        </a>
-        {% endfor %}
-      </div>
-    </div>
-  </nav>
-
-
-  <section class="hero" id="about">
-    <div class="hero-body container is-max-desktop">
-      <div class="columns is-vcentered">
-        <div class="column is-4">
-          <div class="portrait">
-            <img src="{{ '/images/portrait_1740471515.jpg' | relative_url }}" />
-          </div>
-        </div>
-        <div class="column">
-          <h1 class="title">
-            <b>Hello, I'm {{ site.name }}</b>
-          </h1>
-          <div class="content has-text-justified">
-            {{ site.description | markdownify }}
-            <div class="buttons">
-              <!--a class="external-link button is-light"
-                href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
-                <span class="icon"><i class="ai ai-google-scholar"></i></span>
-                <span>Scholar</span>
-              </a-->
-              <a class="external-link button is-light" href="https://github.com/{{ site.github_username }}">
-                <span class="icon"><i class="fab fa-github"></i></span>
-                <span>GitHub</span>
-              </a>
-              <a class="external-link button is-light" href="https://x.com/{{ site.twitter_username }}">
-                <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
-                <span>X</span>
-              </a>
-              <a class="external-link button is-light" href="https://www.linkedin.com/in/{{ site.linkedin_name}}/">
-                <span class="icon"><i class="fab fa-linkedin-in"></i></span>
-                <span>LinkedIn</span>
-              </a>
-              <a class="external-link button is-light"
-                href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
-                <span class="icon"><i class="ai ai-google-scholar"></i></span>
-                <span>Scholar</span>
-              </a>
-              <a class="external-link button is-light" href="{{ '/files/CV_Resume_June2026/Kulbir_CV_June2026.pdf' | relative_url }}">
-                <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                <span>CV</span>
-              </a>
-              <a class="external-link button is-light" href="{{ '/files/CV_Resume_June2026/Kulbir_Resume_June2026.pdf' | relative_url }}">
-                <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                <span>Resume</span>
-              </a>
-              <a class="external-link button is-light" href="https://orcid.org/0009-0009-6793-8566">
-                <span class="icon"><i class="fab fa-orcid" style="color: #A6CE39;"></i></span>
-                <span>ORCID</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="hr">
-    <div class="container">
-      <hr>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="news">News</h2>
-      <div class="content">
-        {% for item in site.data.news %}
-          <p class="news-item">
-            <strong>[{{ item.date }}]</strong> {{ item.content }}
-          </p>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <div class="hr">
-    <div class="container">
-      <hr>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="publications">Publications</h2>
-
-      <!-- Research Topic Filter Controls -->
-      <div class="publication-filters mb-5">
-        <p class="mb-3">
-          <span class="has-text-weight-semibold">View: </span>
-          <a href="#" class="filter-link is-active" data-filter="all" onclick="filterPublications('all'); return false;">show all</a> /
-          <a href="#" class="filter-link" data-filter="selected" onclick="filterPublications('selected'); return false;">show selected</a> /
-          <a href="#" class="filter-link" data-filter="topic" onclick="filterPublications('topic'); return false;">show by topic</a>
-        </p>
-        <p class="research-topics">
-          <span class="has-text-weight-semibold">Research Topics: </span>
-          <a href="#" class="topic-link" data-topic="mobile_robotics" onclick="filterByTopic('mobile_robotics'); return false;">Mobile Robotics</a> /
-          <a href="#" class="topic-link" data-topic="computer_vision" onclick="filterByTopic('computer_vision'); return false;">Computer Vision</a> /
-          <a href="#" class="topic-link" data-topic="deep_learning" onclick="filterByTopic('deep_learning'); return false;">Deep Learning</a> /
-          <a href="#" class="topic-link" data-topic="machine_learning" onclick="filterByTopic('machine_learning'); return false;">Machine Learning</a> /
-          <a href="#" class="topic-link" data-topic="nlp" onclick="filterByTopic('nlp'); return false;">NLP</a> /
-          <a href="#" class="topic-link" data-topic="path_planning" onclick="filterByTopic('path_planning'); return false;">Path Planning</a> /
-          <a href="#" class="topic-link" data-topic="decision_making" onclick="filterByTopic('decision_making'); return false;">Decision Making</a> /
-          <a href="#" class="topic-link" data-topic="3d_vision" onclick="filterByTopic('3d_vision'); return false;">3D Vision</a>
-        </p>
-      </div>
-
-      {% for publication in site.data.publications %}
-        <div class="publication-item" data-topics="{% for topic in publication.topics %}{{ topic }} {% endfor %}">
-        {% include section.html %}
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="teaching">Teaching</h2>
-      <div class="publication-block columns">
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title">Teaching Assistant - CS498GC: Mobile Robotics for CS</h3>
-            <div class="publication-venue">
-              <span>University of Illinois, Aug 2025 - Present</span>
-            </div>
-            <p class="publication-description">
-              <strong>Co-developed with Prof. Girish Chowdhary</strong><br>
-              • Co-developed course curriculum focusing on mobile robotics, ROS2, sensor fusion, and SLAM algorithms.<br>
-              • Managing coding exercises and problem sets involving Extended Kalman Filtering and odometry implementation.<br>
-              • Conducting office hours and helping students with ROS2 development and debugging.<br>
-              • Maintaining course website and autograding infrastructure on Gradescope.<br>
-              • <strong>Special Topic Fall 2025:</strong> <a href="https://kulbir-singh-ahluwalia.com/cs498gc/fa25/slaming_mars.html">SLAM-ing on Mars</a>
-            </p>
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://kulbir-ahluwalia.github.io/cs498gc/fa25/">
-                <span class="icon"><i class="fas fa-book-open"></i></span>
-                <span>Fall 2025 Course Website</span>
-              </a>
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://siebelschool.illinois.edu/about/people/all-faculty/girishc">
-                <span class="icon"><i class="fas fa-user"></i></span>
-                <span>Instructor</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="publication-block columns">
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title">Teaching Assistant - CS444: Deep Learning for Computer Vision</h3>
-            <div class="publication-venue">
-              <span>University of Illinois, Jan 2024 - May 2024, Jan 2025 - May 2025</span>
-            </div>
-            <p class="publication-description">
-              <strong>Instructor:</strong> Dr. Svetlana Lazebnik<br>
-              • Updated and verified starter code for assignments, and answered student questions during office hours and through
-              Campuswire.<br>
-              • Assessed student submissions via SpeedGrader on Canvas, and designed multimodal quiz questions, including single-
-              choice, multiple-choice, and matching formats.
-            </p>
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://slazebni.cs.illinois.edu/spring24/">
-                <span class="icon"><i class="fas fa-book-open"></i></span>
-                <span>Spring 2024</span>
-              </a>
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://slazebni.cs.illinois.edu/spring25/">
-                <span class="icon"><i class="fas fa-book-open"></i></span>
-                <span>Spring 2025</span>
-              </a>
-              </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="publication-block columns">
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title">Teaching Assistant - CS519: Scientific Visualization</h3>
-            <div class="publication-venue">
-              <span>University of Illinois, May 2025 - Aug 2025</span>
-            </div>
-            <p class="publication-description">
-              <strong>Instructor:</strong> Dr. Eric Shaffer<br>
-              • Created multimodal exam questions with integrated visualizations using Python and matplotlib for assessing student understanding of scientific visualization concepts.<br>
-              • Assisted students with implementation of advanced visualization algorithms including ray marching, transfer functions, and interactive widget development.
-            </p>
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://courses.grainger.illinois.edu/cs519/">
-                <span class="icon"><i class="fas fa-book-open"></i></span>
-                <span>Course Page</span>
-              </a>
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://siebelschool.illinois.edu/about/people/faculty/shaffer1">
-                <span class="icon"><i class="fas fa-user"></i></span>
-                <span>Instructor</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="experience">Work Experience</h2>
-      <div class="publication-block columns">
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title">AI Intern - Earthsense Inc.</h3>
-            <div class="publication-venue">
-              <span>Urbana, IL, USA | May 2025 - Aug 2025</span>
-            </div>
-            <p class="publication-description">
-              <strong>Supervisor:</strong> Michael McGuire, Lead Computer Vision Engineer<br>
-              • <strong>Key Achievement:</strong> Contributed to developing a natural language-conditioned waypoint generation pipeline for agricultural robot navigation.<br>
-              • Implemented state-of-the-art NLP and CV pipelines for Mobile Manipulators, enabling natural language instruction following.<br>
-              • Created an automatic labeling pipeline for large outdoor robot navigation datasets using Grounded SAM2, streamlining data processing.<br>
-              • Deployed and integrated open-source Visual Language Models (Molmo-7B-D, Gemma-3-27B, Qwen-2.5-VL-72B, Qwen3-30B-A3B, Llama4-Scout, Spatial-VLM; 3B-72B params) for robot reasoning in image space and open-world natural language instruction conditioned question answering for 4 wheeled skid steer outdoor robots.<br>
-              • Enhanced ROS-based systems for real-world agricultural applications, directly supporting the advancement of Physical AI.
-            </p>
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://www.earthsense.com/">
-                <span class="icon"><i class="fas fa-building"></i></span>
-                <span>Company Website</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- NEW: Qualcomm entry per current internship + lead feedback context -->
-      <div class="publication-block columns">
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title">Product Management Intern - Qualcomm Technologies, Inc. (Compute Chipset)</h3>
-            <div class="publication-venue">
-              <span>San Diego, CA, USA | June 8 - Aug 21, 2026 (10 weeks, full-time, on-site)</span>
-            </div>
-            <p class="publication-description">
-              <strong>Team:</strong> Compute Chipset PM under Sr. Director Mandar Deshpande (req 3078866, Snapdragon X Elite / X2 Elite AI-PC silicon)<br>
-              • Conduct market and competitive analysis for on-device AI / generative AI / VLM features on custom silicon (positioning vs Apple M-series, Intel Lunar Lake, AMD Ryzen AI).<br>
-              • Synthesize customer, partner, and engineering feedback into prioritized product requirements documents and roadmap recommendations.<br>
-              • Support technical evaluation and characterization of VLM, multimodal inference, and generative AI workloads on prototype/production Snapdragon X silicon (power, thermal, latency, memory, accuracy, battery trade-offs on Hexagon NPU).<br>
-              • Contribute to cross-functional coordination across silicon design, software optimization (AIMET quantization, AI Hub Models), systems, marketing, and business development.<br>
-              • Prepare internal briefings on edge AI deployment trends for AI-PC / Copilot+ PC platforms. Proposed contributions include VLM competitive study on NPU, on-device real-time VQA demo, and model-quantization PRD (reusing EarthSense methodology).
-            </p>
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" style="padding-left: .4em; " href="https://www.qualcomm.com/">
-                <span class="icon"><i class="fas fa-building"></i></span>
-                <span>Company Website</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="projects">Projects</h2>
-
-      <!-- Project Topic Filter Controls -->
-      <div class="project-filters mb-5">
-        <p class="mb-3">
-          <span class="has-text-weight-semibold">View: </span>
-          <a href="#" class="project-filter-link is-active" data-filter="all" onclick="filterProjects('all'); return false;">show all</a> /
-          <a href="#" class="project-filter-link" data-filter="selected" onclick="filterProjects('selected'); return false;">show selected</a> /
-          <a href="#" class="project-filter-link" data-filter="topic" onclick="filterProjects('topic'); return false;">show by topic</a>
-        </p>
-        <p class="project-topics">
-          <span class="has-text-weight-semibold">Topics: </span>
-          <a href="#" class="project-topic-link" data-topic="mobile_robotics" onclick="filterProjectByTopic('mobile_robotics'); return false;">Mobile Robotics</a> /
-          <a href="#" class="project-topic-link" data-topic="computer_vision" onclick="filterProjectByTopic('computer_vision'); return false;">Computer Vision</a> /
-          <a href="#" class="project-topic-link" data-topic="deep_learning" onclick="filterProjectByTopic('deep_learning'); return false;">Deep Learning</a> /
-          <a href="#" class="project-topic-link" data-topic="machine_learning" onclick="filterProjectByTopic('machine_learning'); return false;">Machine Learning</a> /
-          <a href="#" class="project-topic-link" data-topic="nlp" onclick="filterProjectByTopic('nlp'); return false;">NLP</a> /
-          <a href="#" class="project-topic-link" data-topic="path_planning" onclick="filterProjectByTopic('path_planning'); return false;">Path Planning</a> /
-          <a href="#" class="project-topic-link" data-topic="3d_vision" onclick="filterProjectByTopic('3d_vision'); return false;">3D Vision</a>
-        </p>
-      </div>
-
-      {% for publication in site.data.projects %}
-        <div class="project-item" data-topics="{% for topic in publication.topics %}{{ topic }} {% endfor %}">
-        {% include section.html %}
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="research">Research Affiliations</h2>
-      <div class="content">
-        <p>I am fortunate to be mentored by distinguished faculty at the intersection of robotics, natural language processing, and agricultural technology:</p>
-        <div class="columns is-multiline">
-          <div class="column is-half">
-            <div class="box">
-              <h4 class="subtitle is-5"><strong>DASLAB - Distributed Autonomous Systems Laboratory</strong></h4>
-              <p><strong>Director:</strong> Prof. Girish Chowdhary</p>
-              <p>Focus: Agricultural robotics, field robots, autonomous systems, and machine learning for agriculture</p>
-              <div class="buttons">
-                <a class="external-link button is-small is-primary is-light" href="http://daslab.illinois.edu">
-                  <span class="icon"><i class="fas fa-external-link-alt"></i></span>
-                  <span>Lab Website</span>
-                </a>
-                <a class="external-link button is-small is-info is-light" href="https://siebelschool.illinois.edu/about/people/all-faculty/girishc">
-                  <span class="icon"><i class="fas fa-user"></i></span>
-                  <span>Prof. Chowdhary</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="column is-half">
-            <div class="box">
-              <h4 class="subtitle is-5"><strong>HMR Lab - Hockenmaier Research Group</strong></h4>
-              <p><strong>Director:</strong> Prof. Julia Hockenmaier</p>
-              <p>Focus: Natural language processing, computational linguistics, vision and language, semantic parsing</p>
-              <div class="buttons">
-                <a class="external-link button is-small is-primary is-light" href="https://hmr-lab.github.io">
-                  <span class="icon"><i class="fas fa-external-link-alt"></i></span>
-                  <span>Lab Website</span>
-                </a>
-                <a class="external-link button is-small is-info is-light" href="https://siebelschool.illinois.edu/about/people/all-faculty/juliahmr">
-                  <span class="icon"><i class="fas fa-user"></i></span>
-                  <span>Prof. Hockenmaier</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="has-text-centered mt-4">
-          <strong>Research Focus:</strong> Natural Language Grounding for Agricultural Robots - Advancing Physical AI for Humanity
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="field-deployment">Field Deployment Portfolio</h2>
-      <div class="content">
-        <p>In-the-wild perception on a real mobile-manipulator platform, deployed in outdoor fields and greenhouses with Jose R. Cuaran (DASLAB, UIUC). These visuals back the co-authored ICRA 2025 paper "Active Semantic Mapping with Mobile Manipulator in Horticultural Environments".</p>
-        <div class="columns is-multiline">
-
-          <div class="column is-half" id="icra2025">
-            <div class="box">
-              <figure class="image">
-                <img src="/images/field/icra2025-poster.jpg" alt="ICRA 2025 poster: Active Semantic Mapping with Mobile Manipulator in Horticultural Environments (Cuaran + Ahluwalia et al., UIUC)">
-              </figure>
-              <h4 class="subtitle is-6 mt-3"><strong>ICRA 2025 - Active Semantic Mapping</strong></h4>
-              <p>Co-authored with Jose R. Cuaran. Probabilistic semantic octomaps from RGB-D, candidate viewpoint generation, and information-gain next-best-view planning. <a href="https://arxiv.org/abs/2412.10515">arXiv:2412.10515</a>.</p>
-            </div>
-          </div>
-
-          <div class="column is-half" id="field-greenhouse">
-            <div class="box">
-              <figure class="image">
-                <img src="/images/field/greenhouse.jpg" alt="Greenhouse data collection with our mobile manipulator">
-              </figure>
-              <h4 class="subtitle is-6 mt-3"><strong>Greenhouse Data Collection</strong></h4>
-              <p>Mobile manipulator platform operating through greenhouse rows during active semantic mapping data collection.</p>
-            </div>
-          </div>
-
-          <div class="column is-half" id="field-team">
-            <div class="box">
-              <figure class="image">
-                <img src="/images/field/field-team.jpg" alt="Jose Cuaran operating the robot during a field deployment">
-              </figure>
-              <h4 class="subtitle is-6 mt-3"><strong>Team Field Operations</strong></h4>
-              <p>Jose R. Cuaran (DASLAB, UIUC) operating the mobile manipulator during an outdoor deployment.</p>
-            </div>
-          </div>
-
-          <div class="column is-half" id="field-logistics">
-            <div class="box">
-              <figure class="image">
-                <img src="/images/field/field-logistics.jpg" alt="Equipment transport and field-day logistics">
-              </figure>
-              <h4 class="subtitle is-6 mt-3"><strong>Field Logistics</strong></h4>
-              <p>Equipment transport for multi-day outdoor data-collection sessions with the mobile manipulator.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 anchor" id="misc">Miscellaneous</h2>
-      {% for publication in site.data.misc %}
-        {% include section.html %}
-      {% endfor %}
-      </div>
-  </section>
-
-  <div class="hr">
-    <div class="container">
-      <hr>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      {{ site.data.hobbies | markdownify }}
-    </div>
-  </section>
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="content footer-links has-text-centered">
-        <a href="mailto:{{ site.email }}">
-          <i class="fas fa-envelope" title="ksa5@illinois.edu"></i>
-        </a>
-        <a class="external-link" href="https://github.com/{{ site.github_username }}">
-          <i class="fab fa-github"></i>
-        </a>
-        <a class="external-link" href="https://x.com/{{ site.twitter_username }}">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a class="external-link" href="https://www.linkedin.com/in/{{ site.linkedin_name }}/">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-
-        <a class="external-link" href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
-          <i class="ai ai-google-scholar"></i>
-        </a>
-        <a class="external-link" href="https://orcid.org/0009-0009-6793-8566">
-          <i class="fab fa-orcid" style="color: #A6CE39;"></i>
-        </a>
-      </div>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              Site borrowed from <a href="https://keunhong.com/">this</a> and inspired by <a
-                href="https://vsimkus.github.io/academic-jekyll/">this</a>. Feel free to reuse <a
-                href="https://github.com/OliEfr/OliEfr.github.io">this site</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <main class="card">
+    <span class="badge">Work in Progress</span>
+    <h1>Prachit Puranik</h1>
+    <p class="tagline">This site is currently being built.</p>
+    <div class="divider"></div>
+    <p class="note">
+      Thanks for stopping by &mdash; my personal website is under construction
+      and will be live here soon.
+    </p>
+    <p class="footer">&copy; Prachit Puranik</p>
+  </main>
 </body>
 </html>
